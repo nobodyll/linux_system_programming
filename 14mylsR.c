@@ -11,7 +11,7 @@ void isFile(char *name);
  // 打开目录读取,处理目录
  void read_dir(char *dir, void (*func)(char *))
  {
- char path[256];
+ char path[512];
  DIR *dp;
  struct dirent *sdp;
 
