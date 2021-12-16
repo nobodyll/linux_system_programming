@@ -13,6 +13,8 @@ int main(int argc, const char * argv[]) {
         exit(1);
     }
     printf("file size :%ld\n", sbuf.st_size);
-    printf("file mode :%d\n", sbuf.st_mode);
+    if (S_ISDIR(sbuf.st_mode)) {
+        printf("%s is a directory\n", argv[1]);
+    }
     return 0;
 }
