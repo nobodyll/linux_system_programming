@@ -1,3 +1,26 @@
+open
+close
+read
+write
+stat
+lstat
+fcntl
+lseek
+link
+unlink
+dup
+dup2
+opendir
+closedir
+readdir
+
+fork
+
+
+
+
+
+
 open 函数：
 int open(char *pathname, int flags) #include <unistd.h>
 参数：
@@ -18,6 +41,9 @@ mode: 参数 3 使用的前提， 参 2 指定了 O_CREAT。 取值 8 进制数�
 返回值：
 成功： 打开文件所得到对应的 文件描述符（整数）
 失败： -1， 设置 errno
+
+
+
 close 函数：
 int close(int fd);
 错误处理函数： 与 errno 相关。
@@ -26,6 +52,9 @@ char *strerror(int errnum);
 printf("xxx error: %s\n", strerror(errno));
 void perror(const char *s);
 perror("open error");
+
+
+
 read 函数：
 ssize_t read(int fd, void *buf, size_t count);
 参数：
@@ -38,6 +67,9 @@ count：缓冲区大小
 失败： -1， 设置 errno
 -1： 并且 errno = EAGIN 或 EWOULDBLOCK, 说明不是 read 失败，而是 read 在以非阻塞方
 式读一个设备文件（网络文件），并且文件无数据。
+
+
+
 write 函数：
 ssize_t write(int fd, const void *buf, size_t count);
 参数：
@@ -65,6 +97,8 @@ flgs |= O_NONBLOCK
 fcntl(fd, F_SETFL, flgs);
 获取文件状态： F_GETFL
 设置文件状态： F_SETFL
+
+
 lseek 函数：
 off_t lseek(int fd, off_t offset, int whence);
 参数：
@@ -79,6 +113,8 @@ whence：起始偏移位置： SEEK_SET/SEEK_CUR/SEEK_END
 2. 使用 lseek 获取文件大小
 3. 使用 lseek 拓展文件大小：要想使文件大小真正拓展，必须引起 IO 操作。
 使用 truncate 函数，直接拓展文件。 int ret = truncate("dict.cp", 250);
+
+
 传入参数：
 1. 指针作为函数参数。
 2. 同常有 const 关键字修饰。
@@ -99,6 +135,8 @@ bbb()
 {
 aaa();
 }
+
+
 stat/lstat 函数：
 int stat(const char *path, struct stat *buf);
 参数：
