@@ -15,7 +15,10 @@ closedir
 readdir
 
 fork
-
+execl
+execlp
+wait
+watipid
 
 
 
