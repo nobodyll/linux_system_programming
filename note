@@ -24,6 +24,25 @@ watipid
 pipe
 mmap
 
+kill
+abort
+raise
+alarm
+getitimer
+setitimer
+
+sigemptyset
+sigfillset
+sigaddset
+sigdelset
+sigismember
+
+sigprocmask
+sigpending
+
+signal
+sigaction
+
 
 
 open 函数：
@@ -196,3 +215,10 @@ sizeof(a) = 80;
 a[1] 等价于 *(a + 1);
 
 右边的a表示的是第一个元素的地址 类型为 int *
+
+产生信号
+1.按键产生
+2.系统调用产生
+3.软件条件产生
+4.硬件异常产生
+5.命令产生
