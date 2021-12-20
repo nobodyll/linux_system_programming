@@ -44,6 +44,14 @@ signal
 sigaction
 
 chdir
+setsid
+getsid
+umask
+
+pthread_self
+pthread_create
+pthread_
+
 
 
 
@@ -227,5 +235,9 @@ a[1] 等价于 *(a + 1);
 
 
 创建守护进程
-1.创建子进程
-2.
+1.创建子进程，让父进程终止
+2.子进程中创建会话使用setsid()
+3.改变当前目录位置chdir()
+4.重设文件权限掩码(根据需要)
+5.关闭文件描述符()
+6.开始执行守护进程核心工作守护进程推出处理程序模型

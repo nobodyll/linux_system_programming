@@ -21,7 +21,7 @@ target = $(patsubst %.c, %, $(src))
 ALL:$(target)
 
 %:%.c
-	gcc $< -o $@ -Wall -g
+	gcc $< -o $@ -Wall -g -pthread
 
 clean:
 	-rm -rf $(target)
